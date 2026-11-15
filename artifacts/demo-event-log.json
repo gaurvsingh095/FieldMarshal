@@ -1,0 +1,946 @@
+{
+  "scenario": "Yuma Valley • Winter Greens 2026",
+  "region": "Yuma County, Arizona",
+  "policy": "FieldMarshal (smart)",
+  "horizonMinutes": 180,
+  "fieldGeometry": "Synthetic farm layout",
+  "injectedEvents": [
+    {
+      "at": 22,
+      "kind": "breakdown",
+      "tractor": "T-01",
+      "note": "Sprayer tractor fails mid-job; partial progress must be preserved"
+    },
+    {
+      "at": 50,
+      "kind": "block",
+      "a": "F-01",
+      "b": "F-07",
+      "note": "Field road closed under an active route; in-flight tractor must reroute"
+    },
+    {
+      "at": 85,
+      "kind": "priority",
+      "job": "J-01",
+      "priority": 5,
+      "note": "Agronomist escalates a pending spray order"
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "at": 0,
+      "kind": "start",
+      "message": "FieldMarshal optimizer initialized with 3 tractors / 10 jobs"
+    },
+    {
+      "seq": 2,
+      "at": 0,
+      "kind": "assignment",
+      "message": "Atlas assigned inspect at Romaine North",
+      "tractor": "T-01",
+      "job": "J-03",
+      "reason": "Best-scoring of 25 feasible tractor-job pairs: priority 5/5, deadline T+50, ETA T+28 (22m slack); 29.8 units travel; implement vegetable sprayer supports inspect; fuel 93 ≥ need+reserve"
+    },
+    {
+      "seq": 3,
+      "at": 0,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Spinach South",
+      "tractor": "T-02",
+      "job": "J-07",
+      "reason": "Best-scoring of 14 feasible tractor-job pairs: priority 3/5, deadline T+114, ETA T+25 (89m slack); 26.7 units travel; implement forage mower supports inspect; fuel 88 ≥ need+reserve"
+    },
+    {
+      "seq": 4,
+      "at": 0,
+      "kind": "assignment",
+      "message": "Cedar assigned mow at Alfalfa Buffer",
+      "tractor": "T-03",
+      "job": "J-02",
+      "reason": "Best-scoring of 8 feasible tractor-job pairs: priority 3/5, deadline T+77, ETA T+33 (44m slack); 22.6 units travel; implement quick-change implement supports mow; fuel 95 ≥ need+reserve"
+    },
+    {
+      "seq": 5,
+      "at": 15,
+      "kind": "arrival",
+      "message": "Cedar began mow at Alfalfa Buffer",
+      "tractor": "T-03",
+      "job": "J-02"
+    },
+    {
+      "seq": 6,
+      "at": 17,
+      "kind": "arrival",
+      "message": "Atlas began inspect at Romaine North",
+      "tractor": "T-01",
+      "job": "J-03"
+    },
+    {
+      "seq": 7,
+      "at": 17,
+      "kind": "arrival",
+      "message": "Bison began inspect at Spinach South",
+      "tractor": "T-02",
+      "job": "J-07"
+    },
+    {
+      "seq": 8,
+      "at": 22,
+      "kind": "recovery",
+      "message": "J-03 returned to queue (tractor breakdown); preserved 46% field progress",
+      "job": "J-03",
+      "tractor": "T-01"
+    },
+    {
+      "seq": 9,
+      "at": 22,
+      "kind": "breakdown",
+      "message": "Atlas failed; J-03 requires reassignment",
+      "tractor": "T-01",
+      "job": "J-03"
+    },
+    {
+      "seq": 10,
+      "at": 26,
+      "kind": "completed",
+      "message": "Bison completed J-07",
+      "tractor": "T-02",
+      "job": "J-07"
+    },
+    {
+      "seq": 11,
+      "at": 26,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Celery Garden",
+      "tractor": "T-02",
+      "job": "J-05",
+      "reason": "Best-scoring of 4 feasible tractor-job pairs: priority 4/5, deadline T+83, ETA T+54 (29m slack); 29.2 units travel; implement forage mower supports inspect; fuel 83 ≥ need+reserve"
+    },
+    {
+      "seq": 12,
+      "at": 34,
+      "kind": "completed",
+      "message": "Cedar completed J-02",
+      "tractor": "T-03",
+      "job": "J-02"
+    },
+    {
+      "seq": 13,
+      "at": 34,
+      "kind": "assignment",
+      "message": "Cedar assigned inspect at Romaine North",
+      "tractor": "T-03",
+      "job": "J-03",
+      "reason": "Best-scoring of 7 feasible tractor-job pairs: priority 5/5, deadline T+50, ETA T+52 (2m projected late — overdue work is not deferred); 17.0 units travel; resumes at 46% done; implement quick-change implement supports inspect; fuel 88 ≥ need+reserve"
+    },
+    {
+      "seq": 14,
+      "at": 44,
+      "kind": "arrival",
+      "message": "Bison began inspect at Celery Garden",
+      "tractor": "T-02",
+      "job": "J-05"
+    },
+    {
+      "seq": 15,
+      "at": 45,
+      "kind": "arrival",
+      "message": "Cedar began inspect at Romaine North",
+      "tractor": "T-03",
+      "job": "J-03"
+    },
+    {
+      "seq": 16,
+      "at": 50,
+      "kind": "block",
+      "message": "Road between F-01 and F-07 blocked",
+      "edge": "F-01|F-07"
+    },
+    {
+      "seq": 17,
+      "at": 52,
+      "kind": "completed",
+      "message": "Cedar completed J-03 after deadline",
+      "tractor": "T-03",
+      "job": "J-03"
+    },
+    {
+      "seq": 18,
+      "at": 52,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Romaine North",
+      "tractor": "T-03",
+      "job": "J-10",
+      "reason": "Best-scoring of 6 feasible tractor-job pairs: priority 3/5, deadline T+144, ETA T+70 (74m slack); 0.0 units travel; implement quick-change implement supports spray; fuel 84 ≥ need+reserve"
+    },
+    {
+      "seq": 19,
+      "at": 53,
+      "kind": "arrival",
+      "message": "Cedar began spray at Romaine North",
+      "tractor": "T-03",
+      "job": "J-10"
+    },
+    {
+      "seq": 20,
+      "at": 54,
+      "kind": "completed",
+      "message": "Bison completed J-05",
+      "tractor": "T-02",
+      "job": "J-05"
+    },
+    {
+      "seq": 21,
+      "at": 54,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Cabbage Strip",
+      "tractor": "T-02",
+      "job": "J-08",
+      "reason": "Best-scoring of 2 feasible tractor-job pairs: priority 2/5, deadline T+162, ETA T+74 (88m slack); 21.1 units travel; implement forage mower supports inspect; fuel 77 ≥ need+reserve"
+    },
+    {
+      "seq": 22,
+      "at": 67,
+      "kind": "arrival",
+      "message": "Bison began inspect at Cabbage Strip",
+      "tractor": "T-02",
+      "job": "J-08"
+    },
+    {
+      "seq": 23,
+      "at": 71,
+      "kind": "completed",
+      "message": "Cedar completed J-10",
+      "tractor": "T-03",
+      "job": "J-10"
+    },
+    {
+      "seq": 24,
+      "at": 71,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Iceberg Block",
+      "tractor": "T-03",
+      "job": "J-06",
+      "reason": "Best-scoring of 4 feasible tractor-job pairs: priority 4/5, deadline T+118, ETA T+107 (11m slack); 25.5 units travel; implement quick-change implement supports spray; fuel 81 ≥ need+reserve"
+    },
+    {
+      "seq": 25,
+      "at": 75,
+      "kind": "completed",
+      "message": "Bison completed J-08",
+      "tractor": "T-02",
+      "job": "J-08"
+    },
+    {
+      "seq": 26,
+      "at": 75,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Alfalfa Buffer",
+      "tractor": "T-02",
+      "job": "J-09",
+      "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 2/5, deadline T+151, ETA T+106 (45m slack); 36.9 units travel; implement forage mower supports inspect; fuel 72 ≥ need+reserve"
+    },
+    {
+      "seq": 27,
+      "at": 85,
+      "kind": "priority",
+      "message": "J-01 priority changed to 5",
+      "job": "J-01"
+    },
+    {
+      "seq": 28,
+      "at": 85,
+      "kind": "recovery",
+      "message": "J-06 returned to queue (pre-empted for priority-5 J-01); preserved 0% field progress",
+      "job": "J-06",
+      "tractor": "T-03"
+    },
+    {
+      "seq": 29,
+      "at": 85,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Cauliflower East",
+      "tractor": "T-03",
+      "job": "J-01",
+      "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 5/5, deadline T+125, ETA T+131 (6m projected late — overdue work is not deferred); 45.2 units travel; implement quick-change implement supports spray; fuel 78 ≥ need+reserve"
+    },
+    {
+      "seq": 30,
+      "at": 98,
+      "kind": "arrival",
+      "message": "Bison began inspect at Alfalfa Buffer",
+      "tractor": "T-02",
+      "job": "J-09"
+    },
+    {
+      "seq": 31,
+      "at": 106,
+      "kind": "completed",
+      "message": "Bison completed J-09",
+      "tractor": "T-02",
+      "job": "J-09"
+    },
+    {
+      "seq": 32,
+      "at": 115,
+      "kind": "arrival",
+      "message": "Cedar began spray at Cauliflower East",
+      "tractor": "T-03",
+      "job": "J-01"
+    },
+    {
+      "seq": 33,
+      "at": 132,
+      "kind": "completed",
+      "message": "Cedar completed J-01 after deadline",
+      "tractor": "T-03",
+      "job": "J-01"
+    },
+    {
+      "seq": 34,
+      "at": 132,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Broccoli Rows",
+      "tractor": "T-03",
+      "job": "J-04",
+      "reason": "Best-scoring of 2 feasible tractor-job pairs: priority 4/5, deadline T+92, ETA T+173 (81m projected late — overdue work is not deferred); 30.5 units travel; implement quick-change implement supports spray; fuel 68 ≥ need+reserve"
+    },
+    {
+      "seq": 35,
+      "at": 152,
+      "kind": "arrival",
+      "message": "Cedar began spray at Broccoli Rows",
+      "tractor": "T-03",
+      "job": "J-04"
+    },
+    {
+      "seq": 36,
+      "at": 173,
+      "kind": "completed",
+      "message": "Cedar completed J-04 after deadline",
+      "tractor": "T-03",
+      "job": "J-04"
+    },
+    {
+      "seq": 37,
+      "at": 173,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Iceberg Block",
+      "tractor": "T-03",
+      "job": "J-06",
+      "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 4/5, deadline T+118, ETA T+209 (91m projected late — overdue work is not deferred); 25.6 units travel; implement quick-change implement supports spray; fuel 60 ≥ need+reserve"
+    }
+  ],
+  "finalState": {
+    "time": 180,
+    "tractors": [
+      {
+        "id": "T-01",
+        "name": "Atlas",
+        "model": "80-hp narrow-row platform",
+        "implement": "vegetable sprayer",
+        "capabilities": [
+          "spray",
+          "inspect"
+        ],
+        "fuel": 88.02172718855425,
+        "maxFuel": 100,
+        "speed": 1.8,
+        "workRate": 1.2,
+        "x": 31,
+        "y": 16,
+        "initialFuel": 93,
+        "state": "failed",
+        "jobId": null,
+        "remaining": 0,
+        "total": 0,
+        "travel": 29.832867780352604,
+        "idle": 0,
+        "work": 5,
+        "fuelUsed": 4.978272811445836,
+        "route": [],
+        "reason": "Best-scoring of 25 feasible tractor-job pairs: priority 5/5, deadline T+50, ETA T+28 (22m slack); 29.8 units travel; implement vegetable sprayer supports inspect; fuel 93 ≥ need+reserve",
+        "lastAssigned": "F-01",
+        "fromNode": "F-01"
+      },
+      {
+        "id": "T-02",
+        "name": "Bison",
+        "model": "110-hp utility platform",
+        "implement": "forage mower",
+        "capabilities": [
+          "mow",
+          "inspect"
+        ],
+        "fuel": 65.801563882718,
+        "maxFuel": 100,
+        "speed": 1.65,
+        "workRate": 1.25,
+        "x": 30.5,
+        "y": 33,
+        "initialFuel": 88,
+        "state": "idle",
+        "jobId": null,
+        "remaining": 0,
+        "total": 8,
+        "travel": 113.89566244063069,
+        "idle": 74,
+        "work": 33.599999999999994,
+        "fuelUsed": 22.198436117281982,
+        "route": [],
+        "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 2/5, deadline T+151, ETA T+106 (45m slack); 36.9 units travel; implement forage mower supports inspect; fuel 72 ≥ need+reserve",
+        "lastAssigned": "F-07",
+        "fromNode": "F-07"
+      },
+      {
+        "id": "T-03",
+        "name": "Cedar",
+        "model": "multi-implement carrier",
+        "implement": "quick-change implement",
+        "capabilities": [
+          "spray",
+          "mow",
+          "inspect"
+        ],
+        "fuel": 58.38830256798117,
+        "maxFuel": 100,
+        "speed": 1.55,
+        "workRate": 1.05,
+        "x": 71.20177050244818,
+        "y": 16.941350049259633,
+        "initialFuel": 95,
+        "state": "travel",
+        "jobId": "J-06",
+        "remaining": 14.772255950637906,
+        "total": 25.62225595063791,
+        "travel": 147.8555480118698,
+        "idle": 0,
+        "work": 79.04761904761904,
+        "fuelUsed": 36.61169743201922,
+        "route": [
+          {
+            "id": "F-02",
+            "x": 56.5,
+            "y": 15.5
+          }
+        ],
+        "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 4/5, deadline T+118, ETA T+209 (91m projected late — overdue work is not deferred); 25.6 units travel; implement quick-change implement supports spray; fuel 60 ≥ need+reserve",
+        "lastAssigned": "F-02",
+        "fromNode": "F-03"
+      }
+    ],
+    "jobs": [
+      {
+        "id": "J-01",
+        "field": "F-06",
+        "type": "spray",
+        "priority": 5,
+        "deadline": 125,
+        "duration": 17,
+        "taskNote": "Modeled scheduled field application; no chemical rate recommendation",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 85,
+        "completedAt": 132,
+        "missed": true
+      },
+      {
+        "id": "J-02",
+        "field": "F-07",
+        "type": "mow",
+        "priority": 3,
+        "deadline": 77,
+        "duration": 19,
+        "taskNote": "Alfalfa buffer mowing",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 0,
+        "completedAt": 34,
+        "missed": false
+      },
+      {
+        "id": "J-03",
+        "field": "F-01",
+        "type": "inspect",
+        "priority": 5,
+        "deadline": 50,
+        "duration": 13,
+        "taskNote": "Early crop scouting window",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 0,
+        "completedAt": 52,
+        "missed": true
+      },
+      {
+        "id": "J-04",
+        "field": "F-03",
+        "type": "spray",
+        "priority": 4,
+        "deadline": 92,
+        "duration": 22,
+        "taskNote": "Modeled application / implement eligibility",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 132,
+        "completedAt": 173,
+        "missed": true
+      },
+      {
+        "id": "J-05",
+        "field": "F-05",
+        "type": "inspect",
+        "priority": 4,
+        "deadline": 83,
+        "duration": 12,
+        "taskNote": "Inspect moisture and field access",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 26,
+        "completedAt": 54,
+        "missed": false
+      },
+      {
+        "id": "J-06",
+        "field": "F-02",
+        "type": "spray",
+        "priority": 4,
+        "deadline": 118,
+        "duration": 20,
+        "taskNote": "Scheduled non-prescriptive treatment",
+        "state": "travel",
+        "assigned": "T-03",
+        "progress": 0,
+        "started": 71,
+        "completedAt": null,
+        "missed": false
+      },
+      {
+        "id": "J-07",
+        "field": "F-04",
+        "type": "inspect",
+        "priority": 3,
+        "deadline": 114,
+        "duration": 11,
+        "taskNote": "Leaf health scouting",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 0,
+        "completedAt": 26,
+        "missed": false
+      },
+      {
+        "id": "J-08",
+        "field": "F-08",
+        "type": "inspect",
+        "priority": 2,
+        "deadline": 162,
+        "duration": 9,
+        "taskNote": "Quality inspection",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 54,
+        "completedAt": 75,
+        "missed": false
+      },
+      {
+        "id": "J-09",
+        "field": "F-07",
+        "type": "inspect",
+        "priority": 2,
+        "deadline": 151,
+        "duration": 10,
+        "taskNote": "Post-mow field inspection",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 75,
+        "completedAt": 106,
+        "missed": false
+      },
+      {
+        "id": "J-10",
+        "field": "F-01",
+        "type": "spray",
+        "priority": 3,
+        "deadline": 144,
+        "duration": 18,
+        "taskNote": "Generic application demo, subject to operator review",
+        "state": "done",
+        "assigned": null,
+        "progress": 1,
+        "started": 52,
+        "completedAt": 71,
+        "missed": false
+      }
+    ],
+    "events": [
+      {
+        "seq": 1,
+        "at": 0,
+        "kind": "start",
+        "message": "FieldMarshal optimizer initialized with 3 tractors / 10 jobs"
+      },
+      {
+        "seq": 2,
+        "at": 0,
+        "kind": "assignment",
+        "message": "Atlas assigned inspect at Romaine North",
+        "tractor": "T-01",
+        "job": "J-03",
+        "reason": "Best-scoring of 25 feasible tractor-job pairs: priority 5/5, deadline T+50, ETA T+28 (22m slack); 29.8 units travel; implement vegetable sprayer supports inspect; fuel 93 ≥ need+reserve"
+      },
+      {
+        "seq": 3,
+        "at": 0,
+        "kind": "assignment",
+        "message": "Bison assigned inspect at Spinach South",
+        "tractor": "T-02",
+        "job": "J-07",
+        "reason": "Best-scoring of 14 feasible tractor-job pairs: priority 3/5, deadline T+114, ETA T+25 (89m slack); 26.7 units travel; implement forage mower supports inspect; fuel 88 ≥ need+reserve"
+      },
+      {
+        "seq": 4,
+        "at": 0,
+        "kind": "assignment",
+        "message": "Cedar assigned mow at Alfalfa Buffer",
+        "tractor": "T-03",
+        "job": "J-02",
+        "reason": "Best-scoring of 8 feasible tractor-job pairs: priority 3/5, deadline T+77, ETA T+33 (44m slack); 22.6 units travel; implement quick-change implement supports mow; fuel 95 ≥ need+reserve"
+      },
+      {
+        "seq": 5,
+        "at": 15,
+        "kind": "arrival",
+        "message": "Cedar began mow at Alfalfa Buffer",
+        "tractor": "T-03",
+        "job": "J-02"
+      },
+      {
+        "seq": 6,
+        "at": 17,
+        "kind": "arrival",
+        "message": "Atlas began inspect at Romaine North",
+        "tractor": "T-01",
+        "job": "J-03"
+      },
+      {
+        "seq": 7,
+        "at": 17,
+        "kind": "arrival",
+        "message": "Bison began inspect at Spinach South",
+        "tractor": "T-02",
+        "job": "J-07"
+      },
+      {
+        "seq": 8,
+        "at": 22,
+        "kind": "recovery",
+        "message": "J-03 returned to queue (tractor breakdown); preserved 46% field progress",
+        "job": "J-03",
+        "tractor": "T-01"
+      },
+      {
+        "seq": 9,
+        "at": 22,
+        "kind": "breakdown",
+        "message": "Atlas failed; J-03 requires reassignment",
+        "tractor": "T-01",
+        "job": "J-03"
+      },
+      {
+        "seq": 10,
+        "at": 26,
+        "kind": "completed",
+        "message": "Bison completed J-07",
+        "tractor": "T-02",
+        "job": "J-07"
+      },
+      {
+        "seq": 11,
+        "at": 26,
+        "kind": "assignment",
+        "message": "Bison assigned inspect at Celery Garden",
+        "tractor": "T-02",
+        "job": "J-05",
+        "reason": "Best-scoring of 4 feasible tractor-job pairs: priority 4/5, deadline T+83, ETA T+54 (29m slack); 29.2 units travel; implement forage mower supports inspect; fuel 83 ≥ need+reserve"
+      },
+      {
+        "seq": 12,
+        "at": 34,
+        "kind": "completed",
+        "message": "Cedar completed J-02",
+        "tractor": "T-03",
+        "job": "J-02"
+      },
+      {
+        "seq": 13,
+        "at": 34,
+        "kind": "assignment",
+        "message": "Cedar assigned inspect at Romaine North",
+        "tractor": "T-03",
+        "job": "J-03",
+        "reason": "Best-scoring of 7 feasible tractor-job pairs: priority 5/5, deadline T+50, ETA T+52 (2m projected late — overdue work is not deferred); 17.0 units travel; resumes at 46% done; implement quick-change implement supports inspect; fuel 88 ≥ need+reserve"
+      },
+      {
+        "seq": 14,
+        "at": 44,
+        "kind": "arrival",
+        "message": "Bison began inspect at Celery Garden",
+        "tractor": "T-02",
+        "job": "J-05"
+      },
+      {
+        "seq": 15,
+        "at": 45,
+        "kind": "arrival",
+        "message": "Cedar began inspect at Romaine North",
+        "tractor": "T-03",
+        "job": "J-03"
+      },
+      {
+        "seq": 16,
+        "at": 50,
+        "kind": "block",
+        "message": "Road between F-01 and F-07 blocked",
+        "edge": "F-01|F-07"
+      },
+      {
+        "seq": 17,
+        "at": 52,
+        "kind": "completed",
+        "message": "Cedar completed J-03 after deadline",
+        "tractor": "T-03",
+        "job": "J-03"
+      },
+      {
+        "seq": 18,
+        "at": 52,
+        "kind": "assignment",
+        "message": "Cedar assigned spray at Romaine North",
+        "tractor": "T-03",
+        "job": "J-10",
+        "reason": "Best-scoring of 6 feasible tractor-job pairs: priority 3/5, deadline T+144, ETA T+70 (74m slack); 0.0 units travel; implement quick-change implement supports spray; fuel 84 ≥ need+reserve"
+      },
+      {
+        "seq": 19,
+        "at": 53,
+        "kind": "arrival",
+        "message": "Cedar began spray at Romaine North",
+        "tractor": "T-03",
+        "job": "J-10"
+      },
+      {
+        "seq": 20,
+        "at": 54,
+        "kind": "completed",
+        "message": "Bison completed J-05",
+        "tractor": "T-02",
+        "job": "J-05"
+      },
+      {
+        "seq": 21,
+        "at": 54,
+        "kind": "assignment",
+        "message": "Bison assigned inspect at Cabbage Strip",
+        "tractor": "T-02",
+        "job": "J-08",
+        "reason": "Best-scoring of 2 feasible tractor-job pairs: priority 2/5, deadline T+162, ETA T+74 (88m slack); 21.1 units travel; implement forage mower supports inspect; fuel 77 ≥ need+reserve"
+      },
+      {
+        "seq": 22,
+        "at": 67,
+        "kind": "arrival",
+        "message": "Bison began inspect at Cabbage Strip",
+        "tractor": "T-02",
+        "job": "J-08"
+      },
+      {
+        "seq": 23,
+        "at": 71,
+        "kind": "completed",
+        "message": "Cedar completed J-10",
+        "tractor": "T-03",
+        "job": "J-10"
+      },
+      {
+        "seq": 24,
+        "at": 71,
+        "kind": "assignment",
+        "message": "Cedar assigned spray at Iceberg Block",
+        "tractor": "T-03",
+        "job": "J-06",
+        "reason": "Best-scoring of 4 feasible tractor-job pairs: priority 4/5, deadline T+118, ETA T+107 (11m slack); 25.5 units travel; implement quick-change implement supports spray; fuel 81 ≥ need+reserve"
+      },
+      {
+        "seq": 25,
+        "at": 75,
+        "kind": "completed",
+        "message": "Bison completed J-08",
+        "tractor": "T-02",
+        "job": "J-08"
+      },
+      {
+        "seq": 26,
+        "at": 75,
+        "kind": "assignment",
+        "message": "Bison assigned inspect at Alfalfa Buffer",
+        "tractor": "T-02",
+        "job": "J-09",
+        "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 2/5, deadline T+151, ETA T+106 (45m slack); 36.9 units travel; implement forage mower supports inspect; fuel 72 ≥ need+reserve"
+      },
+      {
+        "seq": 27,
+        "at": 85,
+        "kind": "priority",
+        "message": "J-01 priority changed to 5",
+        "job": "J-01"
+      },
+      {
+        "seq": 28,
+        "at": 85,
+        "kind": "recovery",
+        "message": "J-06 returned to queue (pre-empted for priority-5 J-01); preserved 0% field progress",
+        "job": "J-06",
+        "tractor": "T-03"
+      },
+      {
+        "seq": 29,
+        "at": 85,
+        "kind": "assignment",
+        "message": "Cedar assigned spray at Cauliflower East",
+        "tractor": "T-03",
+        "job": "J-01",
+        "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 5/5, deadline T+125, ETA T+131 (6m projected late — overdue work is not deferred); 45.2 units travel; implement quick-change implement supports spray; fuel 78 ≥ need+reserve"
+      },
+      {
+        "seq": 30,
+        "at": 98,
+        "kind": "arrival",
+        "message": "Bison began inspect at Alfalfa Buffer",
+        "tractor": "T-02",
+        "job": "J-09"
+      },
+      {
+        "seq": 31,
+        "at": 106,
+        "kind": "completed",
+        "message": "Bison completed J-09",
+        "tractor": "T-02",
+        "job": "J-09"
+      },
+      {
+        "seq": 32,
+        "at": 115,
+        "kind": "arrival",
+        "message": "Cedar began spray at Cauliflower East",
+        "tractor": "T-03",
+        "job": "J-01"
+      },
+      {
+        "seq": 33,
+        "at": 132,
+        "kind": "completed",
+        "message": "Cedar completed J-01 after deadline",
+        "tractor": "T-03",
+        "job": "J-01"
+      },
+      {
+        "seq": 34,
+        "at": 132,
+        "kind": "assignment",
+        "message": "Cedar assigned spray at Broccoli Rows",
+        "tractor": "T-03",
+        "job": "J-04",
+        "reason": "Best-scoring of 2 feasible tractor-job pairs: priority 4/5, deadline T+92, ETA T+173 (81m projected late — overdue work is not deferred); 30.5 units travel; implement quick-change implement supports spray; fuel 68 ≥ need+reserve"
+      },
+      {
+        "seq": 35,
+        "at": 152,
+        "kind": "arrival",
+        "message": "Cedar began spray at Broccoli Rows",
+        "tractor": "T-03",
+        "job": "J-04"
+      },
+      {
+        "seq": 36,
+        "at": 173,
+        "kind": "completed",
+        "message": "Cedar completed J-04 after deadline",
+        "tractor": "T-03",
+        "job": "J-04"
+      },
+      {
+        "seq": 37,
+        "at": 173,
+        "kind": "assignment",
+        "message": "Cedar assigned spray at Iceberg Block",
+        "tractor": "T-03",
+        "job": "J-06",
+        "reason": "Best-scoring of 1 feasible tractor-job pairs: priority 4/5, deadline T+118, ETA T+209 (91m projected late — overdue work is not deferred); 25.6 units travel; implement quick-change implement supports spray; fuel 60 ≥ need+reserve"
+      }
+    ],
+    "metrics": {
+      "completed": 9,
+      "ontime": 6,
+      "weightedValue": 31,
+      "travel": 291.6,
+      "idle": 74,
+      "working": 117.6,
+      "fuel": 63.8,
+      "replans": 3,
+      "violations": 0,
+      "idleWithWork": 0,
+      "lateMinutes": 90,
+      "abortedTravel": 21.7,
+      "reroutes": 0,
+      "progressLost": 0,
+      "duplicateTicks": 0,
+      "unfinished": [
+        "J-06"
+      ]
+    },
+    "blockedEdges": [
+      "F-01|F-07"
+    ],
+    "replanCount": 3,
+    "violations": [],
+    "audit": {
+      "violationTicks": 0,
+      "violations": [],
+      "progressLost": 0,
+      "duplicateTicks": 0,
+      "idleWithWork": 0,
+      "abortedTravel": 21.700000000000006,
+      "reroutes": 0
+    }
+  },
+  "metrics": {
+    "completed": 9,
+    "ontime": 6,
+    "weightedValue": 31,
+    "travel": 291.6,
+    "idle": 74,
+    "working": 117.6,
+    "fuel": 63.8,
+    "replans": 3,
+    "violations": 0,
+    "idleWithWork": 0,
+    "lateMinutes": 90,
+    "abortedTravel": 21.7,
+    "reroutes": 0,
+    "progressLost": 0,
+    "duplicateTicks": 0,
+    "unfinished": [
+      "J-06"
+    ]
+  }
+}

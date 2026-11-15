@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: valid demo config
+ok 1 - valid demo config
+  ---
+  duration_ms: 0.900645
+  type: 'test'
+  ...
+# Subtest: every active assignment is compatible and unique
+ok 2 - every active assignment is compatible and unique
+  ---
+  duration_ms: 12.528699
+  type: 'test'
+  ...
+# Subtest: breakdown preserves partial progress, prevents duplicates, and reroutes
+ok 3 - breakdown preserves partial progress, prevents duplicates, and reroutes
+  ---
+  duration_ms: 12.403004
+  type: 'test'
+  ...
+# Subtest: no assignment of incompatible machinery
+ok 4 - no assignment of incompatible machinery
+  ---
+  duration_ms: 4.14535
+  type: 'test'
+  ...
+# Subtest: roadblock and priorities trigger safe planning
+ok 5 - roadblock and priorities trigger safe planning
+  ---
+  duration_ms: 4.17248
+  type: 'test'
+  ...
+# Subtest: comparison metrics reproducible
+ok 6 - comparison metrics reproducible
+  ---
+  duration_ms: 43.197924
+  type: 'test'
+  ...
+# Subtest: Yuma and Pinal presets preserve physical/crop and equipment coherence
+ok 7 - Yuma and Pinal presets preserve physical/crop and equipment coherence
+  ---
+  duration_ms: 20.773902
+  type: 'test'
+  ...
+# Subtest: replayed events produce identical optimizer and baseline evidence in both regions
+ok 8 - replayed events produce identical optimizer and baseline evidence in both regions
+  ---
+  duration_ms: 53.651507
+  type: 'test'
+  ...
+# Subtest: scenario incident schedules: zero violations, no duplicated or lost work, both policies, both regions
+ok 9 - scenario incident schedules: zero violations, no duplicated or lost work, both policies, both regions
+  ---
+  duration_ms: 16.661324
+  type: 'test'
+  ...
+# Subtest: breakdown mid-job keeps partial progress and another compatible tractor finishes it
+ok 10 - breakdown mid-job keeps partial progress and another compatible tractor finishes it
+  ---
+  duration_ms: 3.793494
+  type: 'test'
+  ...
+# Subtest: road closure under an active trip reroutes in place without dropping the job
+ok 11 - road closure under an active trip reroutes in place without dropping the job
+  ---
+  duration_ms: 3.627062
+  type: 'test'
+  ...
+# Subtest: priority escalation of an open job is applied and logged
+ok 12 - priority escalation of an open job is applied and logged
+  ---
+  duration_ms: 3.421208
+  type: 'test'
+  ...
+# Subtest: failed tractor never receives new work until repaired
+ok 13 - failed tractor never receives new work until repaired
+  ---
+  duration_ms: 3.896625
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 238.42322

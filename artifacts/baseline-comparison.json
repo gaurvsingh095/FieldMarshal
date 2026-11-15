@@ -1,0 +1,251 @@
+{
+  "generatedBy": "node src/run-demo.mjs",
+  "deterministic": true,
+  "definitions": {
+    "completed": "Jobs with 100% progress inside the fixed horizon",
+    "ontime": "Completed jobs whose completion minute <= deadline",
+    "lateMinutes": "Sum over completed jobs of max(0, completion minute - deadline)",
+    "travel": "Grid units actually driven by all tractors (x metersPerUnit for km)",
+    "idle": "Tractor-minutes in idle state (failed tractors excluded), whether or not work remained",
+    "idleWithWork": "Idle tractor-minutes while a pending job the tractor is equipped for existed",
+    "violations": "Simulated minutes in which any invariant failed (duplicate job, incompatible implement, orphaned assignment, completed job <100%); checked every minute",
+    "duplicateTicks": "Minutes in which one job was held by >1 tractor",
+    "progressLost": "Total job-progress fraction that ever decreased (lost work)",
+    "abortedTravel": "Grid units driven toward assignments later cancelled by a replan",
+    "reroutes": "In-flight trips rerouted (job kept) after a road closure",
+    "replans": "Disruption events that triggered a re-dispatch",
+    "weightedValue": "Sum of priorities of completed jobs"
+  },
+  "regions": {
+    "yuma-winter": {
+      "scenario": "Yuma Valley • Winter Greens 2026",
+      "horizonMinutes": 180,
+      "injectedEvents": [
+        {
+          "at": 22,
+          "kind": "breakdown",
+          "tractor": "T-01",
+          "note": "Sprayer tractor fails mid-job; partial progress must be preserved"
+        },
+        {
+          "at": 50,
+          "kind": "block",
+          "a": "F-01",
+          "b": "F-07",
+          "note": "Field road closed under an active route; in-flight tractor must reroute"
+        },
+        {
+          "at": 85,
+          "kind": "priority",
+          "job": "J-01",
+          "priority": 5,
+          "note": "Agronomist escalates a pending spray order"
+        }
+      ],
+      "metrics": {
+        "baseline": {
+          "completed": 9,
+          "ontime": 7,
+          "weightedValue": 32,
+          "travel": 348,
+          "idle": 40,
+          "working": 117.4,
+          "fuel": 71.1,
+          "replans": 3,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 87,
+          "abortedTravel": 0,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": [
+            "J-10"
+          ]
+        },
+        "smart": {
+          "completed": 9,
+          "ontime": 6,
+          "weightedValue": 31,
+          "travel": 291.6,
+          "idle": 74,
+          "working": 117.6,
+          "fuel": 63.8,
+          "replans": 3,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 90,
+          "abortedTravel": 21.7,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": [
+            "J-06"
+          ]
+        }
+      },
+      "metricsNoIncidents": {
+        "baseline": {
+          "completed": 10,
+          "ontime": 10,
+          "weightedValue": 32,
+          "travel": 381.4,
+          "idle": 171,
+          "working": 129.5,
+          "fuel": 78.1,
+          "replans": 0,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 0,
+          "abortedTravel": 0,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": []
+        },
+        "smart": {
+          "completed": 10,
+          "ontime": 9,
+          "weightedValue": 32,
+          "travel": 226.8,
+          "idle": 261,
+          "working": 131.6,
+          "fuel": 58.4,
+          "replans": 0,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 18,
+          "abortedTravel": 0,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": []
+        }
+      },
+      "travelKm": {
+        "baseline": 4.18,
+        "smart": 3.5
+      },
+      "metersPerGridUnit": 12,
+      "disclaimers": [
+        "Crop mix grounded in University of Arizona Cooperative Extension sources",
+        "Field geometry, speeds, durations, fuel, weather and telemetry are synthetic/illustrative",
+        "Not suitable for real-world autonomous machine guidance"
+      ]
+    },
+    "pinal-fall": {
+      "scenario": "Pinal Basin • Cotton & Forage 2026",
+      "horizonMinutes": 180,
+      "injectedEvents": [
+        {
+          "at": 22,
+          "kind": "breakdown",
+          "tractor": "T-01",
+          "note": "Sprayer tractor fails mid-job; partial progress must be preserved"
+        },
+        {
+          "at": 50,
+          "kind": "block",
+          "a": "F-01",
+          "b": "F-02",
+          "note": "Field road closed under an active route; in-flight tractor must reroute"
+        },
+        {
+          "at": 85,
+          "kind": "priority",
+          "job": "J-01",
+          "priority": 5,
+          "note": "Agronomist escalates a pending spray order"
+        }
+      ],
+      "metrics": {
+        "baseline": {
+          "completed": 9,
+          "ontime": 6,
+          "weightedValue": 32,
+          "travel": 390.4,
+          "idle": 16,
+          "working": 118.8,
+          "fuel": 76.9,
+          "replans": 3,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 50,
+          "abortedTravel": 0,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": [
+            "J-10"
+          ]
+        },
+        "smart": {
+          "completed": 10,
+          "ontime": 7,
+          "weightedValue": 34,
+          "travel": 348.9,
+          "idle": 32,
+          "working": 124.1,
+          "fuel": 72.7,
+          "replans": 3,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 73,
+          "abortedTravel": 0,
+          "reroutes": 1,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": []
+        }
+      },
+      "metricsNoIncidents": {
+        "baseline": {
+          "completed": 10,
+          "ontime": 10,
+          "weightedValue": 31,
+          "travel": 417,
+          "idle": 152,
+          "working": 128.2,
+          "fuel": 82.4,
+          "replans": 0,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 0,
+          "abortedTravel": 0,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": []
+        },
+        "smart": {
+          "completed": 10,
+          "ontime": 10,
+          "weightedValue": 31,
+          "travel": 309.5,
+          "idle": 219,
+          "working": 129,
+          "fuel": 68.6,
+          "replans": 0,
+          "violations": 0,
+          "idleWithWork": 0,
+          "lateMinutes": 0,
+          "abortedTravel": 0,
+          "reroutes": 0,
+          "progressLost": 0,
+          "duplicateTicks": 0,
+          "unfinished": []
+        }
+      },
+      "travelKm": {
+        "baseline": 4.68,
+        "smart": 4.19
+      },
+      "metersPerGridUnit": 12,
+      "disclaimers": [
+        "Crop mix grounded in University of Arizona Cooperative Extension sources",
+        "Field geometry, speeds, durations, fuel, weather and telemetry are synthetic/illustrative",
+        "Not suitable for real-world autonomous machine guidance"
+      ]
+    }
+  }
+}

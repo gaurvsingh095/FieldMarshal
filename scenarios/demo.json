@@ -1,0 +1,297 @@
+{
+  "name": "Yuma Valley \u2022 Winter Greens 2026",
+  "region": "Yuma County, Arizona",
+  "season": "November\u2013March / winter vegetables",
+  "location": {
+    "lat": 32.692,
+    "lon": -114.638,
+    "note": "Approximate regional reference only; field geometry is entirely synthetic."
+  },
+  "source": "University of Arizona Cooperative Extension (2025), Economic Contribution of Yuma County Agriculture",
+  "sourceUrl": "https://extension.arizona.edu/sites/default/files/2025-02/Economic-Contribution-of-Yuma-County-Agriculture-Report.pdf",
+  "duration": 180,
+  "grid": {
+    "width": 100,
+    "height": 72,
+    "metersPerUnit": 12
+  },
+  "depot": {
+    "x": 8,
+    "y": 35
+  },
+  "modeledConditions": {
+    "airC": 23,
+    "windKmh": 10,
+    "soil": "irrigated desert alluvium",
+    "moistureRangePct": [
+      24,
+      47
+    ],
+    "weather": "Clear, dry",
+    "note": "Illustrative\u2014not live sensor, GNSS, or weather data."
+  },
+  "tractors": [
+    {
+      "id": "T-01",
+      "name": "Atlas",
+      "model": "80-hp narrow-row platform",
+      "implement": "vegetable sprayer",
+      "capabilities": [
+        "spray",
+        "inspect"
+      ],
+      "fuel": 93,
+      "maxFuel": 100,
+      "speed": 1.8,
+      "workRate": 1.2,
+      "x": 8,
+      "y": 35
+    },
+    {
+      "id": "T-02",
+      "name": "Bison",
+      "model": "110-hp utility platform",
+      "implement": "forage mower",
+      "capabilities": [
+        "mow",
+        "inspect"
+      ],
+      "fuel": 88,
+      "maxFuel": 100,
+      "speed": 1.65,
+      "workRate": 1.25,
+      "x": 8,
+      "y": 35
+    },
+    {
+      "id": "T-03",
+      "name": "Cedar",
+      "model": "multi-implement carrier",
+      "implement": "quick-change implement",
+      "capabilities": [
+        "spray",
+        "mow",
+        "inspect"
+      ],
+      "fuel": 95,
+      "maxFuel": 100,
+      "speed": 1.55,
+      "workRate": 1.05,
+      "x": 8,
+      "y": 35
+    }
+  ],
+  "fields": [
+    {
+      "id": "F-01",
+      "name": "Romaine North",
+      "x": 22,
+      "y": 10,
+      "w": 18,
+      "h": 12,
+      "crop": "Romaine lettuce",
+      "moisture": 37,
+      "risk": "Crop monitoring",
+      "color": "#61a14b"
+    },
+    {
+      "id": "F-02",
+      "name": "Iceberg Block",
+      "x": 47,
+      "y": 9,
+      "w": 19,
+      "h": 13,
+      "crop": "Iceberg lettuce",
+      "moisture": 31,
+      "risk": "Short scouting window",
+      "color": "#9dcb70"
+    },
+    {
+      "id": "F-03",
+      "name": "Broccoli Rows",
+      "x": 73,
+      "y": 11,
+      "w": 18,
+      "h": 14,
+      "crop": "Broccoli",
+      "moisture": 42,
+      "risk": "Scheduled treatment",
+      "color": "#487949"
+    },
+    {
+      "id": "F-04",
+      "name": "Spinach South",
+      "x": 19,
+      "y": 44,
+      "w": 20,
+      "h": 15,
+      "crop": "Spinach",
+      "moisture": 29,
+      "risk": "Scout before dispatch",
+      "color": "#3c8d57"
+    },
+    {
+      "id": "F-05",
+      "name": "Celery Garden",
+      "x": 47,
+      "y": 32,
+      "w": 18,
+      "h": 17,
+      "crop": "Celery",
+      "moisture": 45,
+      "risk": "Irrigation access",
+      "color": "#63a65b"
+    },
+    {
+      "id": "F-06",
+      "name": "Cauliflower East",
+      "x": 72,
+      "y": 40,
+      "w": 19,
+      "h": 17,
+      "crop": "Cauliflower",
+      "moisture": 35,
+      "risk": "Field access",
+      "color": "#779f6a"
+    },
+    {
+      "id": "F-07",
+      "name": "Alfalfa Buffer",
+      "x": 22,
+      "y": 27,
+      "w": 17,
+      "h": 12,
+      "crop": "Alfalfa hay",
+      "moisture": 24,
+      "risk": "Forage mowing",
+      "color": "#a7ad58"
+    },
+    {
+      "id": "F-08",
+      "name": "Cabbage Strip",
+      "x": 44,
+      "y": 56,
+      "w": 20,
+      "h": 11,
+      "crop": "Cabbage",
+      "moisture": 39,
+      "risk": "Quality inspection",
+      "color": "#3c7854"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "J-01",
+      "field": "F-06",
+      "type": "spray",
+      "priority": 2,
+      "deadline": 125,
+      "duration": 17,
+      "taskNote": "Modeled scheduled field application; no chemical rate recommendation"
+    },
+    {
+      "id": "J-02",
+      "field": "F-07",
+      "type": "mow",
+      "priority": 3,
+      "deadline": 77,
+      "duration": 19,
+      "taskNote": "Alfalfa buffer mowing"
+    },
+    {
+      "id": "J-03",
+      "field": "F-01",
+      "type": "inspect",
+      "priority": 5,
+      "deadline": 50,
+      "duration": 13,
+      "taskNote": "Early crop scouting window"
+    },
+    {
+      "id": "J-04",
+      "field": "F-03",
+      "type": "spray",
+      "priority": 4,
+      "deadline": 92,
+      "duration": 22,
+      "taskNote": "Modeled application / implement eligibility"
+    },
+    {
+      "id": "J-05",
+      "field": "F-05",
+      "type": "inspect",
+      "priority": 4,
+      "deadline": 83,
+      "duration": 12,
+      "taskNote": "Inspect moisture and field access"
+    },
+    {
+      "id": "J-06",
+      "field": "F-02",
+      "type": "spray",
+      "priority": 4,
+      "deadline": 118,
+      "duration": 20,
+      "taskNote": "Scheduled non-prescriptive treatment"
+    },
+    {
+      "id": "J-07",
+      "field": "F-04",
+      "type": "inspect",
+      "priority": 3,
+      "deadline": 114,
+      "duration": 11,
+      "taskNote": "Leaf health scouting"
+    },
+    {
+      "id": "J-08",
+      "field": "F-08",
+      "type": "inspect",
+      "priority": 2,
+      "deadline": 162,
+      "duration": 9,
+      "taskNote": "Quality inspection"
+    },
+    {
+      "id": "J-09",
+      "field": "F-07",
+      "type": "inspect",
+      "priority": 2,
+      "deadline": 151,
+      "duration": 10,
+      "taskNote": "Post-mow field inspection"
+    },
+    {
+      "id": "J-10",
+      "field": "F-01",
+      "type": "spray",
+      "priority": 3,
+      "deadline": 144,
+      "duration": 18,
+      "taskNote": "Generic application demo, subject to operator review"
+    }
+  ],
+  "blockedEdges": [],
+  "incidents": [
+    {
+      "at": 22,
+      "kind": "breakdown",
+      "tractor": "T-01",
+      "note": "Sprayer tractor fails mid-job; partial progress must be preserved"
+    },
+    {
+      "at": 50,
+      "kind": "block",
+      "a": "F-01",
+      "b": "F-07",
+      "note": "Field road closed under an active route; in-flight tractor must reroute"
+    },
+    {
+      "at": 85,
+      "kind": "priority",
+      "job": "J-01",
+      "priority": 5,
+      "note": "Agronomist escalates a pending spray order"
+    }
+  ]
+}

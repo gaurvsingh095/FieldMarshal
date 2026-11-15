@@ -1,0 +1,74 @@
+{
+ "3D engine ready after first frame": {
+  "pass": true,
+  "detail": "3D engine ready"
+ },
+ "WebGL drawing buffer contains a rendered scene (not blank)": {
+  "pass": true,
+  "detail": "{\"w\": 818, \"h\": 540, \"distinctColors\": 108, \"samples\": 4554}"
+ },
+ "Scene contains fields, crop-row instances, tractors": {
+  "pass": true,
+  "detail": "{\"meshes\": 112, \"cropInstances\": 1088, \"fields\": 8, \"tractors\": 3}"
+ },
+ "Orbit drag moves camera": {
+  "pass": true,
+  "detail": "[62, 93, 88] -> [-77.08989516047441, 119.11949834406077, 10.231968452177522]"
+ },
+ "Scroll zoom changes distance": {
+  "pass": true,
+  "detail": "distance 104.6"
+ },
+ "Raycast click selects tractor and shows WHY explanation": {
+  "pass": true,
+  "detail": "\u00d7 / Bison \u00b7 T-02 / 110-hp utility platform \u00b7 TRAVEL / Fuel: 85% \u00b7 forage mower / Job: J-07 / WHY Best-scoring of 14 feasible tractor-job pairs: priority 3/5, deadline T+114, ETA T+25 (89m slack); 26.7 units travel; imple"
+ },
+ "Tractor mesh animates after a simulation tick": {
+  "pass": true,
+  "detail": "[-26.433613935583757, 0, 11.230731907755613] -> [-25.859419209569037, 0, 11.68188490676718]"
+ },
+ "Tactical 2D view renders same state": {
+  "pass": true,
+  "detail": ""
+ },
+ "yuma: breakdown injected and job released with progress kept": {
+  "pass": true,
+  "detail": "{\"t\": 34, \"failed\": [\"T-01\"], \"ev\": [\"J-03 returned to queue (tractor breakdown); preserved 46% field progress\", \"Atlas failed; J-03 requires reassignment\"]}"
+ },
+ "yuma: 3D tractor targets equal engine positions": {
+  "pass": true,
+  "detail": "max drift 0"
+ },
+ "yuma: road block + priority change replanned in 3D session": {
+  "pass": true,
+  "detail": "22 recovery J-03 returned to queue (tractor breakdown); preserved 46% field progress | 50 block Road between F-01 and F-07 blocked | 85 priority J-01 priority changed to 5 | 85 recovery J-06 returned to queue (pre-empted for priority-5 J-01); preserved 0% field progress"
+ },
+ "yuma: full horizon, zero violations, no lost/duplicated work": {
+  "pass": true,
+  "detail": "{\"completed\": 9, \"ontime\": 6, \"travel\": 291.6, \"violations\": 0, \"progressLost\": 0, \"duplicateTicks\": 0}"
+ },
+ "pinal: breakdown injected and job released with progress kept": {
+  "pass": true,
+  "detail": "{\"t\": 35, \"failed\": [\"T-01\"], \"ev\": [\"J-03 returned to queue (tractor breakdown); preserved 46% field progress\", \"Atlas failed; J-03 requires reassignment\"]}"
+ },
+ "pinal: 3D tractor targets equal engine positions": {
+  "pass": true,
+  "detail": "max drift 0"
+ },
+ "pinal: road block + priority change replanned in 3D session": {
+  "pass": true,
+  "detail": "22 recovery J-03 returned to queue (tractor breakdown); preserved 46% field progress | 50 block Road between F-01 and F-02 blocked | 50 reroute Cedar rerouted around closed road to Alfalfa One (51.0 units, via F-01 \u2192 F-08 \u2192 F-02) | 85 priority J-01 priority changed to 5"
+ },
+ "pinal: full horizon, zero violations, no lost/duplicated work": {
+  "pass": true,
+  "detail": "{\"completed\": 10, \"ontime\": 7, \"travel\": 348.9, \"violations\": 0, \"progressLost\": 0, \"duplicateTicks\": 0}"
+ },
+ "No uncaught page errors (WebGL run)": {
+  "pass": true,
+  "detail": ""
+ },
+ "2D fallback when WebGL disabled; sim + breakdown still work": {
+  "pass": true,
+  "detail": "2D fallback \u00b7 retry 3D"
+ }
+}

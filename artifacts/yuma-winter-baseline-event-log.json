@@ -1,0 +1,327 @@
+{
+  "scenario": "Yuma Valley • Winter Greens 2026",
+  "policy": "FCFS baseline",
+  "injectedEvents": [
+    {
+      "at": 22,
+      "kind": "breakdown",
+      "tractor": "T-01",
+      "note": "Sprayer tractor fails mid-job; partial progress must be preserved"
+    },
+    {
+      "at": 50,
+      "kind": "block",
+      "a": "F-01",
+      "b": "F-07",
+      "note": "Field road closed under an active route; in-flight tractor must reroute"
+    },
+    {
+      "at": 85,
+      "kind": "priority",
+      "job": "J-01",
+      "priority": 5,
+      "note": "Agronomist escalates a pending spray order"
+    }
+  ],
+  "events": [
+    {
+      "seq": 1,
+      "at": 0,
+      "kind": "start",
+      "message": "FCFS baseline initialized with 3 tractors / 10 jobs"
+    },
+    {
+      "seq": 2,
+      "at": 0,
+      "kind": "assignment",
+      "message": "Atlas assigned spray at Cauliflower East",
+      "tractor": "T-01",
+      "job": "J-01",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 3,
+      "at": 0,
+      "kind": "assignment",
+      "message": "Bison assigned mow at Alfalfa Buffer",
+      "tractor": "T-02",
+      "job": "J-02",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 4,
+      "at": 0,
+      "kind": "assignment",
+      "message": "Cedar assigned inspect at Romaine North",
+      "tractor": "T-03",
+      "job": "J-03",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 5,
+      "at": 14,
+      "kind": "arrival",
+      "message": "Bison began mow at Alfalfa Buffer",
+      "tractor": "T-02",
+      "job": "J-02"
+    },
+    {
+      "seq": 6,
+      "at": 20,
+      "kind": "arrival",
+      "message": "Cedar began inspect at Romaine North",
+      "tractor": "T-03",
+      "job": "J-03"
+    },
+    {
+      "seq": 7,
+      "at": 22,
+      "kind": "recovery",
+      "message": "J-01 returned to queue (tractor breakdown); preserved 0% field progress",
+      "job": "J-01",
+      "tractor": "T-01"
+    },
+    {
+      "seq": 8,
+      "at": 22,
+      "kind": "breakdown",
+      "message": "Atlas failed; J-01 requires reassignment",
+      "tractor": "T-01",
+      "job": "J-01"
+    },
+    {
+      "seq": 9,
+      "at": 30,
+      "kind": "completed",
+      "message": "Bison completed J-02",
+      "tractor": "T-02",
+      "job": "J-02"
+    },
+    {
+      "seq": 10,
+      "at": 30,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Celery Garden",
+      "tractor": "T-02",
+      "job": "J-05",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 11,
+      "at": 33,
+      "kind": "completed",
+      "message": "Cedar completed J-03",
+      "tractor": "T-03",
+      "job": "J-03"
+    },
+    {
+      "seq": 12,
+      "at": 33,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Cauliflower East",
+      "tractor": "T-03",
+      "job": "J-01",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 13,
+      "at": 47,
+      "kind": "arrival",
+      "message": "Bison began inspect at Celery Garden",
+      "tractor": "T-02",
+      "job": "J-05"
+    },
+    {
+      "seq": 14,
+      "at": 50,
+      "kind": "block",
+      "message": "Road between F-01 and F-07 blocked",
+      "edge": "F-01|F-07"
+    },
+    {
+      "seq": 15,
+      "at": 57,
+      "kind": "completed",
+      "message": "Bison completed J-05",
+      "tractor": "T-02",
+      "job": "J-05"
+    },
+    {
+      "seq": 16,
+      "at": 57,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Spinach South",
+      "tractor": "T-02",
+      "job": "J-07",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 17,
+      "at": 72,
+      "kind": "arrival",
+      "message": "Cedar began spray at Cauliflower East",
+      "tractor": "T-03",
+      "job": "J-01"
+    },
+    {
+      "seq": 18,
+      "at": 75,
+      "kind": "arrival",
+      "message": "Bison began inspect at Spinach South",
+      "tractor": "T-02",
+      "job": "J-07"
+    },
+    {
+      "seq": 19,
+      "at": 84,
+      "kind": "completed",
+      "message": "Bison completed J-07",
+      "tractor": "T-02",
+      "job": "J-07"
+    },
+    {
+      "seq": 20,
+      "at": 84,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Cabbage Strip",
+      "tractor": "T-02",
+      "job": "J-08",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 21,
+      "at": 85,
+      "kind": "priority",
+      "message": "J-01 priority changed to 5",
+      "job": "J-01"
+    },
+    {
+      "seq": 22,
+      "at": 89,
+      "kind": "completed",
+      "message": "Cedar completed J-01",
+      "tractor": "T-03",
+      "job": "J-01"
+    },
+    {
+      "seq": 23,
+      "at": 89,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Broccoli Rows",
+      "tractor": "T-03",
+      "job": "J-04",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 24,
+      "at": 101,
+      "kind": "arrival",
+      "message": "Bison began inspect at Cabbage Strip",
+      "tractor": "T-02",
+      "job": "J-08"
+    },
+    {
+      "seq": 25,
+      "at": 109,
+      "kind": "completed",
+      "message": "Bison completed J-08",
+      "tractor": "T-02",
+      "job": "J-08"
+    },
+    {
+      "seq": 26,
+      "at": 109,
+      "kind": "arrival",
+      "message": "Cedar began spray at Broccoli Rows",
+      "tractor": "T-03",
+      "job": "J-04"
+    },
+    {
+      "seq": 27,
+      "at": 109,
+      "kind": "assignment",
+      "message": "Bison assigned inspect at Alfalfa Buffer",
+      "tractor": "T-02",
+      "job": "J-09",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 28,
+      "at": 130,
+      "kind": "completed",
+      "message": "Cedar completed J-04 after deadline",
+      "tractor": "T-03",
+      "job": "J-04"
+    },
+    {
+      "seq": 29,
+      "at": 130,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Iceberg Block",
+      "tractor": "T-03",
+      "job": "J-06",
+      "reason": "First compatible idle tractor, in submitted job order"
+    },
+    {
+      "seq": 30,
+      "at": 132,
+      "kind": "arrival",
+      "message": "Bison began inspect at Alfalfa Buffer",
+      "tractor": "T-02",
+      "job": "J-09"
+    },
+    {
+      "seq": 31,
+      "at": 140,
+      "kind": "completed",
+      "message": "Bison completed J-09",
+      "tractor": "T-02",
+      "job": "J-09"
+    },
+    {
+      "seq": 32,
+      "at": 147,
+      "kind": "arrival",
+      "message": "Cedar began spray at Iceberg Block",
+      "tractor": "T-03",
+      "job": "J-06"
+    },
+    {
+      "seq": 33,
+      "at": 167,
+      "kind": "completed",
+      "message": "Cedar completed J-06 after deadline",
+      "tractor": "T-03",
+      "job": "J-06"
+    },
+    {
+      "seq": 34,
+      "at": 167,
+      "kind": "assignment",
+      "message": "Cedar assigned spray at Romaine North",
+      "tractor": "T-03",
+      "job": "J-10",
+      "reason": "First compatible idle tractor, in submitted job order"
+    }
+  ],
+  "metrics": {
+    "completed": 9,
+    "ontime": 7,
+    "weightedValue": 32,
+    "travel": 348,
+    "idle": 40,
+    "working": 117.4,
+    "fuel": 71.1,
+    "replans": 3,
+    "violations": 0,
+    "idleWithWork": 0,
+    "lateMinutes": 87,
+    "abortedTravel": 0,
+    "reroutes": 0,
+    "progressLost": 0,
+    "duplicateTicks": 0,
+    "unfinished": [
+      "J-10"
+    ]
+  }
+}
