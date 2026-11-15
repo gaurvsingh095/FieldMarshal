@@ -1,0 +1,14 @@
+name: Fleet engine regression
+on: [push, pull_request]
+jobs:
+  deterministic-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Engine test suite
+        run: node --test tests/engine.test.mjs
+      - name: Re-run paired baseline benchmark
+        run: node src/run-demo.mjs
